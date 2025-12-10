@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual University - BS Software Engineering Curriculum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- 1. CSS Reset & Base Styles --- */
+        /* --- 1. CSS Variables & Base Styles (MODERNIZED) --- */
         :root {
-            --primary-color: #004d99; /* Dark Blue - VU Theme */
-            --secondary-color: #f7b731; /* Amber/Gold - Accent */
-            --background-light: #f4f7f6;
-            --text-dark: #333;
+            /* Updated Palette */
+            --primary-color: #0077b6; /* Deep Sky Blue/Teal */
+            --secondary-color: #fca311; /* Vibrant Orange/Gold */
+            --accent-light: #48cae4;
+            --background-light: #ffffff; /* Clean white background */
+            --background-secondary: #f0f7ff; /* Light blue secondary background */
+            --text-dark: #2c3e50; /* Dark Charcoal */
             --text-light: #fff;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-main: 'Poppins', sans-serif;
+            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
         }
 
         * {
@@ -24,196 +30,237 @@
         body {
             font-family: var(--font-main);
             color: var(--text-dark);
-            background-color: var(--background-light);
+            background-color: var(--background-secondary);
             line-height: 1.6;
         }
 
-        /* --- 2. Header & Navigation --- */
+        /* --- 2. Header & Navigation (MODERNIZED) --- */
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), #00b4d8);
             color: var(--text-light);
-            padding: 20px 0;
+            padding: 40px 0 30px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
 
         header h1 {
             margin-bottom: 5px;
-            font-size: 2.2em;
+            font-size: 2.8em;
+            font-weight: 700;
         }
 
         header p {
-            font-size: 1.1em;
+            font-size: 1.2em;
+            font-weight: 300;
             opacity: 0.9;
         }
 
         nav {
-            background-color: #fff;
+            background-color: var(--background-light);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #ddd;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid #e9ecef;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            padding: 10px 0;
+            padding: 15px 0;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--primary-color);
-            padding: 10px 15px;
-            margin: 0 5px;
+            color: var(--text-dark);
+            padding: 10px 20px;
+            margin: 0 8px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border-radius: 4px;
+            border-radius: 25px; /* Pill shape for navigation */
         }
 
-        nav ul li a:hover,
+        nav ul li a:hover {
+            background-color: rgba(0, 119, 182, 0.1);
+            color: var(--primary-color);
+        }
+        
         nav ul li a.active {
-            background-color: var(--secondary-color);
-            color: var(--text-dark);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.4);
         }
 
         /* --- 3. Main Content Layout --- */
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
+            max-width: 1280px;
+            margin: 40px auto;
+            padding: 0 30px;
         }
 
         section {
-            padding: 40px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        section:last-child {
-            border-bottom: none;
+            padding: 50px 0;
         }
 
         h2 {
-            font-size: 1.8em;
+            font-size: 2.2em;
             color: var(--primary-color);
-            border-bottom: 3px solid var(--secondary-color);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
         }
         
-        /* --- 4. Semester Section Styling (Tables) --- */
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* --- 4. Semester Section Styling (MODERNIZED Tables) --- */
         .semester-section {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-subtle);
             margin-bottom: 30px;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .semester-section:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         
         .semester-section h3 {
             color: var(--secondary-color);
-            font-size: 1.4em;
-            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
         }
         
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: var(--radius);
+            overflow: hidden; /* Ensures rounded corners */
         }
         
         th, td {
-            padding: 12px 15px;
+            padding: 15px 20px;
             text-align: left;
-            border-bottom: 1px solid #f0f0f0;
         }
         
         th {
             background-color: var(--primary-color);
             color: var(--text-light);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        
-        td:nth-child(3) { /* Category Column */
             font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
         }
         
-        tr:hover {
-            background-color: #eaf6ff;
+        td {
+            background-color: #fff;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
         }
 
-        /* Highlight Core SE courses for quick spotting */
-        td:nth-child(3):contains('Core SE') {
-            color: var(--primary-color);
+        tr:nth-child(even) td {
+            background-color: #f7f7f7;
+        }
+        
+        tr:hover td {
+            background-color: #e6f7ff; /* Lightest blue on hover */
         }
 
-        /* --- 5. Links Section Styling --- */
+        /* --- 5. Links Section Styling (MODERNIZED Cards) --- */
         .link-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .link-card {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-subtle);
+            border-left: 5px solid var(--secondary-color);
+            transition: all 0.3s ease;
         }
 
         .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--primary-color);
         }
 
         .link-card h4 {
-            color: var(--primary-color);
-            font-size: 1.2em;
-            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .link-card p {
+            font-size: 0.95em;
+            color: #7f8c8d;
+            margin-bottom: 15px;
         }
 
         .link-card a {
             text-decoration: none;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             font-weight: 600;
             display: inline-block;
-            margin-top: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .link-card a:hover {
+            color: var(--secondary-color);
         }
 
         .link-card a::after {
             content: ' →';
+            opacity: 0.8;
+            font-size: 1.1em;
         }
 
-        /* --- 6. Utility Classes & Footer --- */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            background-color: #ddd;
-            color: var(--text-dark);
-            font-size: 0.9em;
-        }
-
-        /* Simple Category Badges */
+        /* --- 6. Utility Classes & Footer (MODERNIZED Badges) --- */
+        
+        /* Category Badges Styling */
         .category-badge {
             display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
+            padding: 5px 10px;
+            border-radius: 20px; /* Pill shape */
+            font-size: 0.75em;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .core-cs { background-color: #e6f7ff; color: #106f9d; }
-        .core-se { background-color: #ffe6f2; color: #a30052; }
-        .math { background-color: #f2e6ff; color: #6e00a3; }
-        .general { background-color: #fffbe6; color: #a37500; }
-        .elective { background-color: #e6ffec; color: #007328; }
+        .core-cs { background-color: #e3f2fd; color: #1565c0; }
+        .core-se { background-color: #fce4ec; color: #ad1457; }
+        .math { background-color: #f3e5f5; color: #6a1b9a; }
+        .general { background-color: #fff3e0; color: #ef6c00; }
+        .elective { background-color: #e8f5e9; color: #388e3c; }
+        .practical { background-color: #f0f4c3; color: #afb42b; } /* New category for internship/practical */
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 50px;
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            font-size: 0.9em;
+        }
 
     </style>
 </head>
@@ -226,8 +273,7 @@
 
     <nav>
         <ul>
-            <li><a href="#semester-1" class="nav-link">Semester 1-4</a></li>
-            <li><a href="#semester-5" class="nav-link">Semester 5-8</a></li>
+            <li><a href="#curriculum" class="nav-link active">Curriculum</a></li>
             <li><a href="#links" class="nav-link">Essential Links</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
         </ul>
@@ -338,7 +384,7 @@
                         <tr><td>CS511</td><td>Web Engineering</td><td><span class="category-badge core-se">Core SE</span></td><td></td></tr>
                         <tr><td>CS611</td><td>Software Quality Engineering</td><td><span class="category-badge core-se">Core SE</span></td><td></td></tr>
                         <tr><td>CS615</td><td>Software Project Management</td><td><span class="category-badge core-se">Core SE</span></td><td></td></tr>
-                        <tr><td>CSI619</td><td>Field Experience / Internship</td><td><span class="category-badge elective">Practical</span></td><td>Mandatory</td></tr>
+                        <tr><td>CSI619</td><td>Field Experience / Internship</td><td><span class="category-badge practical">Practical</span></td><td>Mandatory</td></tr>
                         <tr><td>Elective</td><td>Domain Elective</td><td><span class="category-badge elective">Elective</span></td><td>E.g., CS408 HCI or CS605 SE II</td></tr>
                     </tbody>
                 </table>
@@ -386,25 +432,25 @@
                 
                 <div class="link-card">
                     <h4>BS-SE Admissions Page</h4>
-                    <p>Official page for degree requirements and how to apply.</p>
-                    <a href="https://www.vu.edu.pk/admissions/Programs.aspx?ProgID=32" target="_blank">View Details & Apply</a>
+                    <p>Official page for degree requirements and how to apply/register.</p>
+                    <a href="https://www.vu.edu.pk/apply/login.aspx" target="_blank">View Details & Apply/Login</a>
                 </div>
 
                 <div class="link-card">
                     <h4>Learning Management System (LMS)</h4>
-                    <p>Access your course materials, lectures, and assignments.</p>
-                    <a href="https://vulearning.vu.edu.pk/" target="_blank">Go to LMS</a>
+                    <p>Access your course materials, lectures, and assignments (VULMS).</p>
+                    <a href="https://vulms.vu.edu.pk/AuthenticateStudent.aspx" target="_blank">Go to LMS Login</a>
                 </div>
                 
                 <div class="link-card">
                     <h4>Student Portal / V-LINK</h4>
-                    <p>Manage your enrollment, fees, result checks, and general records.</p>
-                    <a href="https://www.vu.edu.pk/student/vlink/default.aspx" target="_blank">Access Student Portal</a>
+                    <p>Manage your records, announcements, and examination details.</p>
+                    <a href="https://campus.vu.edu.pk/" target="_blank">Access Student Portal (PVC Login)</a>
                 </div>
                 
                 <div class="link-card">
                     <h4>Virtual University Main Website</h4>
-                    <p>The central hub for all VU news and information.</p>
+                    <p>The central hub for all VU news, programs, and official information.</p>
                     <a href="https://www.vu.edu.pk/" target="_blank">Visit VU Home</a>
                 </div>
             </div>
